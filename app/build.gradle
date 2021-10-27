@@ -1,16 +1,16 @@
 plugins {
     id 'com.android.application'
     id 'kotlin-android'
+    id "com.guardsquare.appsweep" version "0.1.5"
 }
-
 android {
-    compileSdkVersion 31
+    compileSdkVersion 30
     buildToolsVersion "31.0.0"
 
     defaultConfig {
         applicationId "com.example.myapplication"
         minSdkVersion 16
-        targetSdkVersion 31
+        targetSdkVersion 30
         versionCode 1
         versionName "1.0"
 
@@ -47,4 +47,9 @@ dependencies {
     testImplementation 'junit:junit:4.+'
     androidTestImplementation 'androidx.test.ext:junit:1.1.2'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
+}
+
+appsweep {
+    #####
+    baseURL "https://development.appsweep.guardsquare.com/"
 }
