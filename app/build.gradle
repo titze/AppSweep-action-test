@@ -50,6 +50,4 @@ dependencies {
 }
 
 appsweep {
-    #####
-    baseURL "https://development.appsweep.guardsquare.com/"
 }
