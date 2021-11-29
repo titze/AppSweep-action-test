@@ -50,5 +50,5 @@ dependencies {
 }
 
 appsweep {
-    apiKey XXXXX
+    apiKey XXX
 }
