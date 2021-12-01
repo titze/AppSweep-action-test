@@ -10,7 +10,7 @@ jobs:
       - name: Access APPSWEEP_API_KEY
         env:
             APPSWEEP_API_KEY: ${{ secrets.APPSWEEP_API_KEY }}
-        run: echo APPSWEEP_API_KEY=\"$APPSWEEP_API_KEY\" > ./local.properties
+        run: echo APPSWEEP_API_KEY=$APPSWEEP_API_KEY > ./local.properties
         
       - name: Upload app to AppSweep with Gradle
         run: ./gradlew uploadToAppSweepRelease --stacktrace
