@@ -12,8 +12,8 @@ jobs:
             APPSWEEP_API_KEY: ${{ secrets.APPSWEEP_API_KEY }}
         run: |
             mkdir -p ~/.gradle/
-            echo "::set-env name=GRADLE_USER_HOME::$HOME/.gradle"
-            echo appSweepAPIKey=$APPSWEEP_API_KEY > ~/.gradle/gradle.properties
+            echo "GRADLE_USER_HOME=${HOME}/.gradle" >> $GITHUB_ENV
+            echo "appSweepAPIKey=${APPSWEEP_API_KEY}" > ~/.gradle/gradle.properties
         
       - name: Upload app to AppSweep with Gradle
         run: ./gradlew uploadToAppSweepRelease --stacktrace
