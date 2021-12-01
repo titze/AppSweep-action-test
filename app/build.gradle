@@ -50,5 +50,12 @@ dependencies {
 }
 
 appsweep {
-    apiKey XXX
+    apiKey getAppSweepApiKey()
+}
+
+String getAppSweepApiKey() {
+   def propFile = rootProject.file("./local.properties")
+   def properties = new Properties()
+   properties.load(new FileInputStream(propFile))
+   return properties['APPSWEEP_API_KEY']
 }
