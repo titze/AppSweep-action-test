@@ -50,5 +50,6 @@ dependencies {
 }
 
 appsweep {
+    println 'Key: "' + System.getenv('appSweepAPIKey') + '"'
     apiKey System.getenv('appSweepAPIKey')
 }
