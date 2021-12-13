@@ -7,13 +7,5 @@ jobs:
       - name: Check out repository code
         uses: actions/checkout@v2
         
-      - name: Access APPSWEEP_API_KEY
-        env:
-            APPSWEEP_API_KEY: ${{ secrets.APPSWEEP_API_KEY }}
-        run: |
-            mkdir -p ~/.gradle/
-            echo "GRADLE_USER_HOME=${HOME}/.gradle" >> $GITHUB_ENV
-            echo "appSweepAPIKey=${APPSWEEP_API_KEY}" > ~/.gradle/gradle.properties
-        
       - name: Upload app to AppSweep with Gradle
         run: ./gradlew uploadToAppSweepRelease --stacktrace
