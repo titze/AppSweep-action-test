@@ -1,7 +1,6 @@
 plugins {
     id 'com.android.application'
     id 'kotlin-android'
-    id "com.guardsquare.appsweep" version "0.1.6"
 }
 android {
     compileSdkVersion 30
