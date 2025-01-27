@@ -10,7 +10,6 @@ jobs:
       - name: Get commit
         run: git rev-parse --short HEAD
 
-      - 
       - name: Upload debug app to AS
         uses: titze/test-gh-action@7f954ef52d071ddec0909ae2240776780a27855b
         with:
