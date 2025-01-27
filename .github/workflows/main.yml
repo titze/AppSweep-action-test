@@ -6,8 +6,14 @@ jobs:
     steps:
       - name: Check out repository code
         uses: actions/checkout@v2
+
+      - name: Install CLI
+        run: curl -fsSL https://platform.guardsquare.com/cli/install.sh | sh -s -- --yes
+
+      - name: Build Debug app
+        run: ./gradlew assembleDebug
         
-      - name: Upload app to AppSweep with Gradle
+      - name: Upload debug app to AS
         env:
             APPSWEEP_API_KEY: ${{ secrets.APPSWEEP_API_KEY }}
-        run: ./gradlew uploadToAppSweepRelease
+        run: guardsquare scan ./app/build/outputs/apk/debug/app-debug.apk
