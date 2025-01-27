@@ -11,7 +11,7 @@ jobs:
         run: git rev-parse --short HEAD
 
       - name: Upload debug app to AS
-        uses: titze/test-gh-action@44dd4a6fdce60c71001e381b6c1ad01cdb60c8c9
+        uses: titze/test-gh-action@e46fb94f471e55d84bd17737d595c85724fbc476
         with:
             appsweep_api_key: ${{ secrets.APPSWEEP_API_KEY }}
             input_file: ./app/build/outputs/apk/debug/app-debug.apk
