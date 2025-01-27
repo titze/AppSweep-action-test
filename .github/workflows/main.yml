@@ -10,4 +10,13 @@ jobs:
       - name: Get commit
         run: git rev-parse --short HEAD
 
-  
+      - name: Install CLI
+        run: curl -fsSL https://platform.guardsquare.com/cli/install.sh | sh -s -- --yes
+
+      - name: Build Debug app
+        run: ./gradlew assembleDebug
+        
+      - name: Upload debug app to AS
+        env:
+            APPSWEEP_API_KEY: ${{ secrets.APPSWEEP_API_KEY }}
+        run: guardsquare scan ./app/build/outputs/apk/debug/app-debug.apk --commit-hash ${{ GITHUB_SHA }} --tag debug
