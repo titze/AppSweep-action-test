@@ -10,14 +10,17 @@ jobs:
       - name: Get commit
         run: git rev-parse --short HEAD
 
+      - uses: OWNER/hello-world-composite-action@SHA
+        with:
+          who-to-greet: 'Mona the Octocat'
+
       - name: Install CLI
         run: curl -fsSL https://platform.guardsquare.com/cli/install.sh | sh -s -- --yes
 
       - name: Build debug app
         run: ./gradlew assembleDebug
         
-      - uses: guardsquare/appsweep-action@main
-        name: Upload debug app to AS
+      - name: Upload debug app to AS
         env:
             APPSWEEP_API_KEY: ${{ secrets.APPSWEEP_API_KEY }}
         run: guardsquare scan ./app/build/outputs/apk/debug/app-debug.apk --commit-hash ${{ github.sha }} --tag debug
