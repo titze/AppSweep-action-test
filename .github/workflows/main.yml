@@ -10,6 +10,6 @@ jobs:
       - name: Get commit
         run: git rev-parse --short HEAD
 
-      - uses: titze/test-gh-action@b0a31c5
+      - uses: titze/test-gh-action@b0a31c54982d186747bb0b1080230c1f580c7f18
         with:
           who-to-greet: 'Mona the Octocat'
