@@ -10,6 +10,10 @@ jobs:
       - name: Get commit
         run: git rev-parse --short HEAD
 
-      - uses: titze/test-gh-action@b0a31c54982d186747bb0b1080230c1f580c7f18
+      - 
+      - name: Upload debug app to AS
+        uses: titze/test-gh-action@7f954ef52d071ddec0909ae2240776780a27855b
         with:
-          who-to-greet: 'Mona the Octocat'
+            appsweep_api_key: ${{ secrets.APPSWEEP_API_KEY }}
+            input_file: ./app/build/outputs/apk/debug/app-debug.apk
+            tag: debug
