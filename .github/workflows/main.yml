@@ -16,7 +16,8 @@ jobs:
       - name: Build debug app
         run: ./gradlew assembleDebug
         
-      - name: Upload debug app to AS
+      - uses: guardsquare/appsweep-action@main
+        name: Upload debug app to AS
         env:
             APPSWEEP_API_KEY: ${{ secrets.APPSWEEP_API_KEY }}
         run: guardsquare scan ./app/build/outputs/apk/debug/app-debug.apk --commit-hash ${{ github.sha }} --tag debug
