@@ -19,4 +19,4 @@ jobs:
       - name: Upload debug app to AS
         env:
             APPSWEEP_API_KEY: ${{ secrets.APPSWEEP_API_KEY }}
-        run: guardsquare scan ./app/build/outputs/apk/debug/app-debug.apk --commit-hash ${{ GITHUB_SHA }} --tag debug
+        run: guardsquare scan ./app/build/outputs/apk/debug/app-debug.apk --commit-hash ${{ github.sha }} --tag debug
