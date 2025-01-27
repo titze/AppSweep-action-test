@@ -10,8 +10,11 @@ jobs:
       - name: Get commit
         run: git rev-parse --short HEAD
 
+      - name: Build debug app
+        run: ./gradlew assembleDebug
+
       - name: Upload debug app to AS
-        uses: titze/test-gh-action@e46fb94f471e55d84bd17737d595c85724fbc476
+        uses: titze/test-gh-action@6256dfb6e707f0cc396925c8850f3c752ecbd3cb
         with:
             appsweep_api_key: ${{ secrets.APPSWEEP_API_KEY }}
             input_file: ./app/build/outputs/apk/debug/app-debug.apk
