@@ -13,7 +13,7 @@ jobs:
       - name: Install CLI
         run: curl -fsSL https://platform.guardsquare.com/cli/install.sh | sh -s -- --yes
 
-      - name: Build Debug app
+      - name: Build debug app
         run: ./gradlew assembleDebug
         
       - name: Upload debug app to AS
