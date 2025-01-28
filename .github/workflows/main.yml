@@ -14,7 +14,7 @@ jobs:
         run: ./gradlew assembleDebug
 
       - name: Upload debug app to AS
-        uses: titze/test-gh-action@0546180de5102b288567d1588f761f4545225344
+        uses: titze/test-gh-action@c9345b741e719a1b7348bc8c0a32385da87e53dc
         with:
             appsweep_api_key: ${{ secrets.APPSWEEP_API_KEY }}
             input_file: ./app/build/outputs/apk/debug/app-debug.apk
