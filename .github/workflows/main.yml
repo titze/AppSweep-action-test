@@ -12,7 +12,7 @@ jobs:
 
 
       - name: Upload debug app to AS
-        uses: titze/test-gh-action@5e34dfda2bca2fe2c309d38e5535b09ee052209c
+        uses: titze/test-gh-action@99726d9c28c796b323d9f315b0ba312d13cff666
         with:
             appsweep_api_key: ${{ secrets.APPSWEEP_API_KEY }}
             input_file: ./app/build/outputs/apk/debug/app-debug.apk
