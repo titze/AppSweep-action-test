@@ -11,6 +11,7 @@ pool:
 
 steps:
 - task: Gradle@2
+  displayName: Build App
   inputs:
     workingDirectory: ''
     gradleWrapperFile: 'gradlew'
@@ -18,3 +19,19 @@ steps:
     publishJUnitResults: false
     testResultsFiles: '**/TEST-*.xml'
     tasks: 'assembleDebug'
+- task: Bash@3
+  displayName: AppSweep Scan
+  inputs:
+    targetType: 'inline'
+    script: |
+      APPSWEEP_CLI_DIR=$(mktemp -d)
+      curl --retry 3 \
+        --retry-max-time 120 \
+        --retry-all-errors \
+        -sS https://platform.guardsquare.com/cli/install.sh | sh -s -- --yes \
+          --bin-dir "$APPSWEEP_CLI_DIR"
+      $APPSWEEP_CLI_DIR/guardsquare scan ./app/build/outputs/apk/debug/app-debug.apk
+  env:
+    APPSWEEP_API_KEY: $(APPSWEEP_API_KEY)
+
+
